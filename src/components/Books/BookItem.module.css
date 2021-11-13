@@ -1,0 +1,26 @@
+.book {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding: 20px 25px;
+  transition: 0.3s;
+  flex-basis: calc(50% - 15px);
+}
+
+.book:hover {
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.09);
+  transform: translate(0, -2px);
+}
+
+.title {
+  font-size: 20px;
+}
+
+.author {
+  margin: 5px 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 7px;
+  margin-top: 10px;
+}
