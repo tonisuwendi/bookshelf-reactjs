@@ -8,7 +8,7 @@
 5. Setelah selesai ketikkan `npm run start`
 6. Akan membuka browser secara otomatis dengan alamat [`localhost:3000`](http://localhost:3000)
 7. Jika ditungguin masih belum kebuka, kamu bisa ketik [`localhost:3000`](http://localhost:3000) pada address bar browser
-<br>
+
 ## Screenshot
 - Belum ada buku
 ![Belum ada buku](/screenshot/1.png)
