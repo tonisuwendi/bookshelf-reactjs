@@ -1,0 +1,42 @@
+.backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.modal {
+  border-radius: 8px;
+  height: auto;
+  left: 50%;
+  padding: 25px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  z-index: 1;
+}
+
+.modal p {
+  color: #333;
+  font-size: 17px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.button-group button {
+  flex-basis: 48%;
+}
+
+@media screen and (max-width: 450px){
+  .modal {
+    width: 90%;
+  }
+}

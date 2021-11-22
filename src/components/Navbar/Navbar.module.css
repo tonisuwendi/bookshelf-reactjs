@@ -8,8 +8,12 @@
   width: 100%;
 }
 
-.app_name {
-  color: white;
-  font-family: "Roboto Slab", serif;
-  font-size: 25px;
+.logo {
+  height: 27px;
+}
+
+@media screen and (max-width: 500px){
+  .navbar {
+    padding: 0 20px;
+  }
 }

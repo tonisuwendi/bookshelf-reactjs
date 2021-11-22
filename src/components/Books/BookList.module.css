@@ -11,16 +11,28 @@
 }
 
 .empty {
-  color: orangered;
-  padding: 30px 25px;
+  padding: 40px 25px;
   text-align: center;
 }
 
+.empty img {
+  margin-bottom: 10px;
+  width: 120px;
+}
+
 .empty h3 {
+  color: orangered;
   font-size: 25px;
   margin-bottom: 3px;
 }
 
 .empty p {
+  color: #444;
   font-size: 16px;
+}
+
+@media screen and (max-width: 750px){
+  .books {
+    display: block;
+  }
 }

@@ -1,19 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 
-import styles from "./AddBook.module.css";
+import styles from "./FormBook.module.css";
 
-const AddBook = ({ onShowForm, onAddBook }) => {
+const FormBook = ({ bookData, onShowForm, onSaveBook }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAuthor, setEnteredAuthor] = useState("");
   const [enteredYear, setEnteredYear] = useState("");
-  const [isUpdate, setIsUpdate] = useState(false);
+  const [bookID, setBookID] = useState(null);
+
+  useEffect(() => {
+    if (bookData) {
+      setEnteredTitle(bookData.title);
+      setEnteredAuthor(bookData.author);
+      setEnteredYear(bookData.year);
+      setBookID(bookData.id);
+    }
+  }, [bookData]);
 
   const cancelHandler = () => {
-    setIsUpdate(false);
     onShowForm(false);
+    resetFormHandler();
   };
 
   const titleChangeHandler = (event) => {
@@ -28,9 +37,9 @@ const AddBook = ({ onShowForm, onAddBook }) => {
     setEnteredYear(event.target.value);
   };
 
-  const addBookHandler = (event) => {
+  const saveBookHandler = (event) => {
     event.preventDefault();
-    onAddBook(enteredTitle, enteredAuthor, enteredYear);
+    onSaveBook(enteredTitle, enteredAuthor, enteredYear, bookID);
     onShowForm(false);
     resetFormHandler();
   };
@@ -44,9 +53,9 @@ const AddBook = ({ onShowForm, onAddBook }) => {
   return (
     <Card className={styles.form}>
       <h3 className={styles.title}>
-        {isUpdate ? "Edit Buku" : "Tambah Buku Baru"}
+        {bookData ? "Edit Buku" : "Tambah Buku Baru"}
       </h3>
-      <form autoComplete="off" onSubmit={addBookHandler}>
+      <form autoComplete="off" onSubmit={saveBookHandler}>
         <div className={styles["form-group"]}>
           <label htmlFor="title">Judul</label>
           <input
@@ -67,7 +76,7 @@ const AddBook = ({ onShowForm, onAddBook }) => {
           />
         </div>
         <div className={styles["form-group"]}>
-          <label htmlFor="year">Tahun</label>
+          <label htmlFor="year">Tahun Terbit</label>
           <input
             type="text"
             id="year"
@@ -76,7 +85,11 @@ const AddBook = ({ onShowForm, onAddBook }) => {
           />
         </div>
         <div className={styles["button-group"]}>
-          <Button title="Masukkan Buku" variant="primary" type="submit" />
+          <Button
+            title={bookData ? "Ubah Buku" : "Masukkan Buku"}
+            variant="primary"
+            type="submit"
+          />
           <Button title="Batal" variant="danger" onClick={cancelHandler} />
         </div>
       </form>
@@ -84,4 +97,4 @@ const AddBook = ({ onShowForm, onAddBook }) => {
   );
 };
 
-export default AddBook;
+export default FormBook;

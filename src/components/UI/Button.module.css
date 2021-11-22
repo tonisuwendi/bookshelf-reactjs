@@ -50,3 +50,15 @@
   background-color: white;
   color: black;
 }
+
+.outline-danger {
+  background-color: transparent;
+  border: 1px solid #d649a5;
+  color: #d649a5;
+}
+
+.outline-danger:hover {
+  background-color: #bd2c8a;
+  border: 1px solid #bd2c8a;
+  color: white;
+}
